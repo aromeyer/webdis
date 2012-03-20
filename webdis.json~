@@ -8,7 +8,7 @@
 	"http_port":	7379,
 	"threads":	1,
 
-	"daemonize":	false	,
+	"daemonize":	false,
 	"websockets":	false,
 
 	"database":	1,

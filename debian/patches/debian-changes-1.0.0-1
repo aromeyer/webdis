@@ -1,0 +1,36 @@
+Description: Upstream changes introduced in version 1.0.0-1
+ This patch has been created by dpkg-source during the package build.
+ Here's the last changelog entry, hopefully it gives details on why
+ those changes were made:
+ .
+ webdis (1.0.0-1) unstable; urgency=low
+ .
+   * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+ .
+ The person named in the Author field signed this changelog entry.
+Author: Alain Romeyer <aromeyer@unknown>
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: http://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- webdis-1.0.0.orig/slog.c
++++ webdis-1.0.0/slog.c
+@@ -20,6 +20,8 @@ void
+ slog_init(struct server *s) {
+ 
+ 	s->log.self = getpid();
++	
++	print("%s",s->cfg->logfile);
+ 
+ 	if(s->cfg->logfile) {
+ 		s->log.fd = open(s->cfg->logfile,

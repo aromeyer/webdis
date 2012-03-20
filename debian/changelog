@@ -1,0 +1,5 @@
+webdis (1.0.0-1) unstable; urgency=low
+
+  * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+
+ -- Alain Romeyer <aromeyer@unknown>  Sun, 18 Mar 2012 14:47:12 +0100

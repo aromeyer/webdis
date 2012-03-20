@@ -93,7 +93,7 @@ conf_read(const char *filename) {
 		} else if(strcmp(json_object_iter_key(kv),"syslog_facility") == 0 && json_typeof(jtmp) == JSON_STRING){
 			if ( GetSyslogFacility(strdup(json_string_value(jtmp))) >= 0 ) {
 				conf->syslog_facility = GetSyslogFacility(strdup(json_string_value(jtmp)));
-			} 
+			}
 // 			printf("syslog_facility : %s - sylog : %d",strdup(json_string_value(jtmp)),conf->syslog_facility);
 		} else if(strcmp(json_object_iter_key(kv), "daemonize") == 0 && json_typeof(jtmp) == JSON_TRUE) {
 			conf->daemonize = 1;

@@ -52,6 +52,6 @@ conf_read(const char *filename);
 void
 conf_free(struct conf *conf);
 
-int GetSyslogFacility(char * facility);
+int CheckSyslogFacility(char * facility);
 
 #endif /* CONF_H */

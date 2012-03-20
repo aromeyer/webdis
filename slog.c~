@@ -53,10 +53,6 @@ slog(struct server *s, log_level level,
 	int line_sz, ret;
 
 	if(level > s->cfg->verbosity) return; /* too verbose */
-		
-	/* limit message size */
-	sz = sz ? sz:strlen(body);
-	snprintf(msg, sz + 1 > sizeof(msg) ? sizeof(msg) : sz + 1, "%s", body);
 
 	if ( s->cfg->syslog == 1 ) {
 		printf("ok");
@@ -64,6 +60,10 @@ slog(struct server *s, log_level level,
 	} else {
 
 		if(!s->log.fd) return;
+
+		/* limit message size */
+		sz = sz ? sz:strlen(body);
+		snprintf(msg, sz + 1 > sizeof(msg) ? sizeof(msg) : sz + 1, "%s", body);
 
 		/* get current time */
 		now = time(NULL);
