@@ -1,15 +1,15 @@
 Source: webdis
 Section: unknown
 Priority: extra
-Maintainer: Alain Romeyer <aromeyer@unknown>
+Maintainer: nicolasff     n.favrefelix@gmail.com
 Build-Depends: debhelper (>= 8.0.0)
 Standards-Version: 3.9.2
-Homepage: <insert the upstream URL, if relevant>
-#Vcs-Git: git://git.debian.org/collab-maint/webdis.git
-#Vcs-Browser: http://git.debian.org/?p=collab-maint/webdis.git;a=summary
+Homepage: http://webd.is/
+#Vcs-Git: https://github.com/nicolasff/webdis.git
+#Vcs-Browser: https://github.com/nicolasff/webdis.git
 
 Package: webdis
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Description: A fast HTTP interface for Redis
+ <Webdis is a simple HTTP server which forwards commands to Redis and sends the reply back using a format of your choice. Accessing /COMMAND/arg0/arg1/.../argN[.ext] on Webdis executes the command on Redis and returns the response; the reply format can be changed with the optional extension (.json, .txt…)>
