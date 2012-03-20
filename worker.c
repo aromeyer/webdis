@@ -185,23 +185,31 @@ worker_process_client(struct http_client *c) {
 	/* check that the command can be executed */
 	struct worker *w = c->w;
 	cmd_response_t ret = CMD_PARAM_ERROR;
+	
+	char *client_ip; /* well set this equal to the IP string address returned by inet_ntoa */
+	client_ip = inet_ntoa(*(struct in_addr *)&c->addr); /* cast x as a struct in_addr */
+	printf("client ip : %s",client_ip);
+	char msg[128] = {};
+	sprintf(msg,"%s %s",client_ip,c->path);
+	printf("ok");
 	switch(c->parser.method) {
 		case HTTP_GET:
 			if(c->path_sz == 16 && memcmp(c->path, "/crossdomain.xml", 16) == 0) {
 				http_crossdomain(c);
 				return;
 			}
-			slog(w->s, WEBDIS_DEBUG, c->path, c->path_sz);
 			ret = cmd_run(c->w, c, 1+c->path, c->path_sz-1, NULL, 0);
+			sprintf(msg,"%s %d",msg,(int)ret);
+			slog(w->s, WEBDIS_DEBUG, msg, strlen(msg));
 			break;
 
 		case HTTP_POST:
-			slog(w->s, WEBDIS_DEBUG, c->path, c->path_sz);
+			slog(w->s, WEBDIS_DEBUG, msg, strlen(msg));
 			ret = cmd_run(c->w, c, c->body, c->body_sz, NULL, 0);
 			break;
 
 		case HTTP_PUT:
-			slog(w->s, WEBDIS_DEBUG, c->path, c->path_sz);
+			slog(w->s, WEBDIS_DEBUG, msg, strlen(msg));
 			ret = cmd_run(c->w, c, 1+c->path, c->path_sz-1,
 					c->body, c->body_sz);
 			break;
