@@ -22,8 +22,6 @@ void
 slog_init(struct server *s) {
 
 	s->log.self = getpid();
-
-	printf("ok");
 	
 	if ( s->cfg->syslog == 1 && s->cfg->syslog_facility ) {
 		openlog("webdis",LOG_DEBUG,s->cfg->syslog_facility);
