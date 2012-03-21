@@ -48,4 +48,6 @@ clean:
 
 install: $(OUT) $(INSTALL_DIRS)
 	cp $(OUT) $(DESTDIR)/$(PREFIX)/bin
-	cp webdis.prod.json $(CONFDIR)
+	cp etc/webdis.json $(CONFDIR)
+	mkdir -p $(CONFDIR)/init.d
+	cp etc/init.d/webdis $(CONFDIR)/init.d/.
