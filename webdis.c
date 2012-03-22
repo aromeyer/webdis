@@ -84,11 +84,11 @@ void usage() {
 static void signal_handler(int sig)
 {
 	char *msg = "";
+	
 	switch(sig) {
 		case SIGHUP:
 			msg = "SIGHUP received... reload configuration";
 			slog(s,WEBDIS_ERROR,msg,strlen(msg));
-			fprintf(stderr,"%s\n",msg);
 			s->cfg = conf_read(cfg_file);
 			break;
 		case SIGINT:
