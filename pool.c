@@ -59,8 +59,8 @@ pool_can_connect(int fd, short event, void *ptr) {
 
 	pool_connect(p, 1);
 }
-static void
-pool_schedule_reconnect(struct pool *p) {
+
+static void pool_schedule_reconnect(struct pool *p) {
 
 	struct pool_reconnect *pr = malloc(sizeof(struct pool_reconnect));
 	pr->p = p;

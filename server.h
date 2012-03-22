@@ -28,7 +28,7 @@ struct server {
 };
 
 struct server *
-server_new(const char *cfg_file);
+server_new(const char *cfg_file); 
 
 int
 server_start(struct server *s);

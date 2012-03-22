@@ -186,4 +186,3 @@ server_start(struct server *s) {
 
 	return 0;
 }
-

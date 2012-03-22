@@ -57,7 +57,7 @@ slog(struct server *s, log_level level,
 	snprintf(msg, sz + 1 > sizeof(msg) ? sizeof(msg) : sz + 1, "%s", body);
 
 	if ( s->cfg->syslog == 1 ) {
-		printf("ok");
+// 		fprintf(stdout,"%s\n",msg);
 		syslog(LOG_MAKEPRI(s->cfg->syslog_facility, level),"%s\n", msg);		
 	} else {
 
